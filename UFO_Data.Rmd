@@ -11,11 +11,37 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+
 ```{r}
 library(tidyverse)
 library(dplyr)
 ufo_data <- read.csv("ufo_data.csv")
 
 glimpse(ufo_data)
+
+
 ```
+
+#Explaining the UFO data: 
+Variables to get rid off: "duration..hours.min.", "comments", "date.posted"
+
+Variables we are using: datetime, city, state, country, shape, duration..seconds., latitude, longitude.  
+
+The UFO data-set gives us UFO sightinggs information. Those include date, time, location, and shape. 
+
+```{r}
+new_ufo <- ufo_data %>% select("datetime", "city", "state", "country", "shape", "duration..seconds.", "latitude", "longitude") %>% 
+  mutate(across(where(is.character), trimws)) %>% #filtering the white spaces
+  filter(if_all(everything(), ~ . != "")) %>% 
+  na.omit() %>% 
+  separate(col=datetime, into = c("date", "time"), sep = " ")
+
+
+
+
+# ufo_data %>% select(datetime) %>% 
+  
+```
+
+
 
