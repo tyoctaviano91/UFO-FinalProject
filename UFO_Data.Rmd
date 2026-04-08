@@ -1,6 +1,6 @@
 ---
 title: "UFO_Data"
-author: "Tyler Guerrero, Emmanuel Padilla, Cameron Snyder"
+author: "Tyler Guerrero, Emanuel Padilla, Cameron Snyder"
 date: "2026-04-08"
 output: html_document
 ---
